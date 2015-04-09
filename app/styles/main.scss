@@ -1,0 +1,151 @@
+/*****************************************************************************
+  hoverboards
+******************************************************************************/
+
+$visual-grid: true;
+//$visual-grid-color: tomato;
+$red: #990000;
+$grey: lightgrey;
+$base-font-size: 16px;
+$base-line-height: 1.4;
+
+@import '../../bower_components/bourbon/dist/_bourbon.scss';
+@import '../../bower_components/neat/app/assets/stylesheets/_neat.scss';
+
+$small: new-breakpoint(min-width 680px max-width 949px);
+$small-up: new-breakpoint(min-width 680px);
+$medium: new-breakpoint(min-width 950px max-width 1199px);
+
+/*****************************************************************************
+  Base Styles
+******************************************************************************/
+
+html{
+    font-size: $base-font-size;
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: $red;
+
+}
+
+footer {
+    margin: 4em;
+    border-top: 1px solid grey;
+    padding: 2em 0;
+}
+
+
+/*****************************************************************************
+  Layout Styles
+******************************************************************************/
+
+// there's a whole bunch of times that there are unordered lists, according to SMACCS, they should go here
+
+.list-unstyled {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.nav-unstyled {
+    display: inline-block;
+    line-height: 50px;
+    vertical-align: middle;
+    padding: 0;
+    margin: 0;
+}
+
+.menu {
+    @extend .list-unstyled;
+    
+    & > li {
+        padding: 0.5em;
+        background-color: lightgrey;
+        color: white;
+        border-bottom: 1px solid white;
+        
+        @include media($small-up){
+        display: inline-block;
+        }
+    }
+    
+    
+}
+
+//set max width
+.site-menu, main, footer {
+    @include outer-container;
+}
+
+/*****************************************************************************
+  Module Styles
+******************************************************************************/
+
+.site-branding {
+    text-align: center;
+    background-color: black;
+    
+    @include media($small){
+        text-align: left;
+        background-color: white;
+        line-height: 50px;
+        padding: 0;
+    }
+}
+
+.site-logo {
+    @include media($small){
+        display: inline-block;
+        line-height: 50px;
+        vertical-align: middle;
+    }
+}
+
+
+.site-title, .intro {
+    display: none;
+    
+    @include media($small){
+       @extend .nav-unstyled;
+        }
+}
+
+.site-menu {
+    background-color: lightgrey;
+}
+
+.product-listing {
+    @extend .list-unstyled;
+}
+
+.product {
+    margin: 1.5em 0;
+    padding: 0.5em;
+    
+    @include media($small) {
+        @include span-columns(6);
+        @include omega(2n);
+    }
+    
+    @include media($medium) {
+        @include span-columns(4);
+        @include omega(3n);
+    }
+}
+
+.footer-menu li{
+    background-color: #fff;
+}
+
+.footer-nameplate {
+    margin: 30px 0;
+    text-align: center;
+}
+
+
